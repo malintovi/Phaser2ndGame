@@ -29,7 +29,7 @@ var worldWidth = 9600;
 
 function preload() {
     this.load.image('fon+', 'assets/fon+.png');
-    this.load.image('ground', 'assets/platform.png');
+    this.load.image('platform', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/dude.png',
@@ -43,7 +43,7 @@ function create() {
     platforms = this.physics.add.staticGroup();
     for (var x = 0; x < worldWidth; x = x + 384) {
         console.log(x)
-        platforms.create(x, 1080 - 93, 'ground').setOrigin(0,0).refreshBody();
+        platforms.create(x, 1080 - 93, 'platform').setOrigin(0,0).refreshBody();
     }
     player = this.physics.add.sprite(1500, 900, 'dude');
     player.setBounce(0.2);
