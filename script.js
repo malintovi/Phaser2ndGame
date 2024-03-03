@@ -28,7 +28,7 @@ var game = new Phaser.Game(config);
 var worldWidth = 9600;
 
 function preload() {
-    this.load.image('fon+', 'assets/fon+.png');
+    this.load.image('fon', 'assets/fon.png');
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
@@ -39,7 +39,7 @@ function preload() {
 }
 
 function create() {
-    this.add.tileSprite(0,0, worldWidth, 1080, 'fon+').setOrigin(0,0);
+    this.add.tileSprite(0,0, worldWidth, 1080, 'fon').setOrigin(0,0);
     platforms = this.physics.add.staticGroup();
     for (var x = 0; x < worldWidth; x = x + 384) {
         console.log(x)
