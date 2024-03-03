@@ -32,13 +32,13 @@ function preload() {
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude', 'assets/dude.png',
+    this.load.spritesheet('dude',
+        'assets/dude.png',
         { frameWidth: 32, frameHeight: 48 }
     );
 }
 
 function create() {
-
     this.add.tileSprite(0,0, worldWidth, 1080, "fon+").setOrigin(0,0);
     platforms = this.physics.add.staticGroup();
     for (var x = 0; x < worldWidth; x = x + 384) {
@@ -51,6 +51,16 @@ function create() {
     this.cameras.main.setBounds(0,0,worldWidth, 1080);
     this.physics.world.setBounds(0,0,worldWidth, 1080);
     this.cameras.main.startFollow(player);
+
+    var x = 0;
+    while (x < worldWidth) {
+        var y = Phaser.Math.FloatBetween(540, 1080); // Змінено діапазон висоти платформ
+        platforms.create(x, y, 'ground').setScale(0.5).refreshBody(); // Зменшено масштаб платформ
+        x += Phaser.Math.FloatBetween(200, 800); // Збільшено відстань між платформами
+    }
+    
+
+
 
     this.anims.create({
         key: 'left',
@@ -71,7 +81,6 @@ function create() {
         frameRate: 10,
         repeat: -1
     });
-    
     cursors = this.input.keyboard.createCursorKeys();
     stars = this.physics.add.group({
         key: 'star',
