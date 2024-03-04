@@ -28,7 +28,7 @@ var game = new Phaser.Game(config);
 var worldWidth = 9600;
 
 function preload() {
-    this.load.image('fon', 'assets/fon.jpg');
+    this.load.image('fon', 'assets/fon.png');
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
